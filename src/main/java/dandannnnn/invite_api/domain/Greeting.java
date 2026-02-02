@@ -34,4 +34,7 @@ public class Greeting {
     @Min(1)
     @Max(31)
     private int day;
+
+    @Column(nullable = false)
+    private String filename;
 }
