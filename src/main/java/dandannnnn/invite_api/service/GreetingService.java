@@ -16,8 +16,20 @@ import org.springframework.stereotype.Service;
 public class GreetingService {
     private static final String ENTITY_NAME = "Greetings";
     private static final String NOT_FOUND = " not found.";
+    private static final String FILE_EXTENSION = ".txt";
 
     private final GreetingRepository greetingRepository;
+
+    public Greeting create(GreetingDTO greetingDTO) {
+        return greetingRepository.save(Greeting.builder()
+            .password(greetingDTO.getPassword())
+            .message(greetingDTO.getMessage())
+            .filename(String.valueOf(greetingDTO.getDay()).concat(FILE_EXTENSION))
+            .month(greetingDTO.getMonth())
+            .day(greetingDTO.getDay())
+            .build()
+        );
+    }
 
     public GreetingDTO get(String filename) {
         log.debug("Getting greeting with filename: {}", filename);

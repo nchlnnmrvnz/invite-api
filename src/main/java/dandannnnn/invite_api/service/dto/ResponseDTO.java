@@ -31,4 +31,19 @@ public class ResponseDTO<T> {
                 .data(data)
                 .build();
     }
+
+    /**
+     * For data with Alert Message sent to UI
+     * @param data the response payload to be sent to the client
+     * @param message the message returned by the service
+     * @param <T> the type of the response payload
+     * @return a {@link ResponseDTO} containing the provided data
+     */
+    public static <T> ResponseDTO<T> data(T data, String message) {
+        return ResponseDTO.<T>builder()
+                .data(data)
+                .message(message)
+                .build();
+    }
+
 }
