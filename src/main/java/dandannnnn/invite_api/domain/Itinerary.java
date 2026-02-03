@@ -11,7 +11,7 @@ import java.time.Month;
 import java.util.List;
 
 @Entity
-@Table(name = "greeting")
+@Table(name = "itinerary")
 @Getter
 @Setter
 @Builder

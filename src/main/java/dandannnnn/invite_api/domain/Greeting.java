@@ -3,9 +3,7 @@ package dandannnnn.invite_api.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Month;
 
@@ -14,6 +12,8 @@ import java.time.Month;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Greeting {
 
     @Id
@@ -34,7 +34,4 @@ public class Greeting {
     @Min(1)
     @Max(31)
     private int day;
-
-    @Column(nullable = false)
-    private String filename;
 }

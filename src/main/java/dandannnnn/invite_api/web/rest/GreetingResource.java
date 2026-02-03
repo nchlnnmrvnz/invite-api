@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Month;
 import java.util.Locale;
 
 
@@ -22,10 +23,10 @@ public class GreetingResource {
     private final GreetingService greetingService;
     private final MessageSource messageSource;
 
-    @GetMapping("/{filename}")
-    public ResponseDTO<GreetingDTO> view(@PathVariable String filename) {
+    @GetMapping("/{month}/{day}")
+    public ResponseDTO<GreetingDTO> view(@PathVariable Month month, @PathVariable int day) {
         log.debug("REST request to get greeting.");
-        return ResponseDTO.data(greetingService.get(filename));
+        return ResponseDTO.data(greetingService.get(month, day));
     }
 
     @PostMapping
